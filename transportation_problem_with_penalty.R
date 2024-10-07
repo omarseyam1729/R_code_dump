@@ -2,18 +2,16 @@
 library(lpSolve)
 
 # Define the cost matrix
-costs <- matrix(c(8,6,10,9,
-                  9,12,13,7,
-                  14,9,16,5), 
-                nrow = 3, 
+costs <- matrix(c(7,8,10,9,7,8), 
+                nrow = 2, 
                 byrow = TRUE)
 
 # Define supply and demand
-supply <- c(60, 50, 70)    # Total supply = 180
-demand <- c(45, 70, 30, 55)  # Total demand = 200
+supply <- c(40,60)    # Total supply = 180
+demand <- c(40,30,50)  # Total demand = 200
 
 # Add the specific penalty costs for unmet demand
-penalty_cost <- c(100, 120, 115, 130)  # Penalty costs for each demand point
+penalty_cost <- c(20,22,23)  # Penalty costs for each demand point
 
 # Extend the cost matrix with the dummy row representing the penalty costs
 costs_with_dummy <- rbind(costs, penalty_cost)
